@@ -33,6 +33,7 @@ ADD run /usr/local/bin/eclipse
 
 RUN chmod +x /usr/local/bin/eclipse
 
+VOLUME /home/developer/.eclipse
 VOLUME /home/developer/workspace
 
 USER developer
