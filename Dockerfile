@@ -19,11 +19,19 @@ RUN wget http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/rel
     tar -xf /tmp/eclipse.tar.gz -C /opt && \
     rm /tmp/eclipse.tar.gz
 
+RUN addgroup --system developer \
+  && adduser \
+			--home /home/developer \
+			--disabled-password \
+			--shell /bin/bash \
+			--gecos "user for development" \
+			--ingroup developer \
+			--quiet \
+			developer
+
 ADD run /usr/local/bin/eclipse
 
-RUN chmod +x /usr/local/bin/eclipse && \
-    mkdir -p /home/developer && \
-    chown developer:developer -R /home/developer
+RUN chmod +x /usr/local/bin/eclipse
 
 VOLUME /home/developer/workspace
 
