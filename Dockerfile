@@ -4,7 +4,8 @@ FROM ubuntu:16.04
 RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
     apt-get update && apt-get install -y \
         software-properties-common \
-        openjdk-8-jdk openjdk-8-source libxext-dev libxrender-dev libxtst-dev && \
+        openjdk-8-jdk openjdk-8-source wget \
+        libxext-dev libxrender-dev libxtst-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
