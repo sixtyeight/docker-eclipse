@@ -5,4 +5,8 @@
 #  sudo chown developer:developer /home/developer/.eclipse
 #fi
 
-exec /opt/eclipse/eclipse -configuration /home/developer/.eclipse
+/opt/eclipse/eclipse \
+  -user /home/developer \
+  -configuration /home/developer/.eclipse \
+  -data /home/developer/workspace
+  
